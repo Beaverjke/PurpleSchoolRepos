@@ -29,5 +29,16 @@ func IMTOutput(imt float64) {
 func main() {
 	fmt.Println("_-_-_ Это калькулятор IMT _-_-_")
 	IMT := calcIMT(getUserInput()) // userWeight, userHeight := getUserInput()
+	if IMT < 16 {
+		fmt.Println("Ты очень худой!")
+	} else if IMT < 18.5 {
+		fmt.Println("Ты худой!")
+	} else if IMT < 25 {
+		fmt.Println("Ты норм!")
+	} else if IMT < 30 {
+		fmt.Println("Ты ты пухлый!")
+	} else {
+		fmt.Println("Ты жирный!")
+	}
 	IMTOutput(IMT)
 }
