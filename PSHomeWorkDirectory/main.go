@@ -16,10 +16,8 @@ func getUserInput() (float64, float64, float64) {
 	var fValue, sValue, tValue float64
 	fmt.Println("Введи исходную валюту:\n1 - Евро\n2 - Доллар\n3 - Рубль")
 	fmt.Scan(&fValue)
-
 	fmt.Println("Введи сумму:")
 	fmt.Scan(&sValue)
-
 	fmt.Println("Введи валюту, в которую хочешь сконвертировать:")
 	switch {
 	case fValue == 1:
@@ -30,7 +28,6 @@ func getUserInput() (float64, float64, float64) {
 		fmt.Println("1 - Евро\n2 - Доллар")
 	}
 	fmt.Scan(&tValue)
-
 	return fValue, sValue, tValue
 }
 func checkRepeatCalc() bool {
