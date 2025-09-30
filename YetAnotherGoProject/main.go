@@ -1,16 +1,61 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
+
+func checkRestart() bool {
+	var userAnswerValue int
+	fmt.Println(`Ты хочешь добавить транзакции?
+	1 - Продолжить
+	0 - Стоп`)
+	fmt.Scan(&userAnswerValue)
+
+	switch {
+	case userAnswerValue == 1:
+		return true
+	}
+	return false
+}
+
+func getUserTransactions() (float64, error) {
+	var userTransactions float64
+	fmt.Println("Введи значение одной транзакции: ")
+	fmt.Scan(&userTransactions)
+	if userTransactions == 0 {
+		return userTransactions, errors.New("не найдено транзакций")
+	}
+	return userTransactions, nil
+}
+
+func transSum(transactions []float64) float64 {
+	var sum float64
+	sum = 0.0
+	for _, value := range transactions {
+		sum += value
+	}
+	return sum
+}
 
 func main() {
-	transactions := [5]int{1, 2, 3, 4, 5}       // Массив из чисел
-	banks := [3]string{"Sber", "T-Bank", "VTB"} // Массив из строк
+	transactionsMain := []float64{}
+	var transactionsSum float64
+	for {
+		transactions, err := getUserTransactions()
+		if err != nil {
+			fmt.Println(err)
+			break
+		}
+		transactionsMain = append(transactionsMain, transactions)
 
-	banks[0] = "Alpha" // Изменение значения части массива по индексу
-	fmt.Println(banks)
-	fmt.Println(transactions[1]) // Вывод ВТОРОГО! значения из массива
+		isRepeatCalc := checkRestart()
+		if !isRepeatCalc {
+			break
+		}
+	}
 
-	partial := transactions[1:] // Slice от 1(2) значения по индексу до последнего 4(5)
-	fmt.Println(partial)
+	transactionsSum = transSum(transactionsMain)
 
+	fmt.Printf("Твой Баланс: %.1f", transactionsSum)
 }
