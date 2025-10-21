@@ -39,6 +39,12 @@ func transSum(transactions []float64) float64 {
 }
 
 func main() {
+	exmp := make([]string, 0, 3)
+	exmp = append(exmp, "1")
+	exmp = append(exmp, "2")
+	exmp = append(exmp, "3")
+	fmt.Println(exmp)
+
 	transactionsMain := []float64{}
 	var transactionsSum float64
 	for {
