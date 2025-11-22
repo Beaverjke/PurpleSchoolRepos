@@ -1,68 +1,71 @@
 package main
 
-import (
-	"fmt"
-	"unicode"
-)
-
-func reverseArray(arr []int) []int {
-	reversed := make([]int, len(arr))
-
-	for i := 0; i < len(arr); i++ {
-		reversed[i] = arr[len(arr)-1-i]
-	}
-
-	return reversed
-}
-
 func main() {
-	arr1 := []int{1, 2, 3, 4, 5, 6}
-	fmt.Print(reverseArray(arr1))
+	//	Переменные и значения
 
-	str := "hhhhh20&&&&nd"
+	//	Виды объявления переменной:
 
-	digits := []rune{}
+	/*
+		var userHeight float64 = 1.8
 
-	for _, char := range str {
-		if unicode.IsDigit(char) {
-			digits = append(digits, char)
-		}
-	}
+		var userHeight float64
+		userHeight = 1.8
 
-	fmt.Println(string(digits)) // 123456
+		var userHeight = 1.8
+
+		userHeight := 1.8
+
+		var userHeight, userWeight float64 = 1.8, 100
+		userHeight, userWeight = 1.8, 100.0
+	*/
+
+	//	Типы данных
+	//	Значения типов
+
+	/*
+		bool - Логический тип, используется для хранения true или false	1 байт
+		int, uint - Знаковые и беззнаковые целые числа, размер по умолчанию зависит от платформы системы	4 или 8 байт
+		int8, uint8 - 8-битные знаковые и беззнаковые целые числа	1 байт
+		int16, uint16 - 16-битные знаковые и беззнаковые целые числа	2 байта
+		int32, uint32 - 32-битные знаковые и беззнаковые целые числа	4 байта
+		int64, uint64 - 64-битные знаковые и беззнаковые целые числа	8 байт
+		float32	- 32-битное число с плавающей запятой	4 байта
+		float64	- 64-битное число с плавающей запятой	8 байт
+		complex64 - Комплексное число с 32-битными действительной и мнимой частями	8 байт
+		complex128 - Комплексное число с 64-битными действительной и мнимой частями	16 байт
+		byte - Похож на uint8	1 байт
+		rune - Похож на int32, представляющий кодовую точку Unicode	4 байта
+		string - Строковый тип. Зависит от длины строки
+		error - Интерфейс ошибки, используется для возврата информации об ошибке. Нет фиксированного размера
+	*/
+
+	// Диапазоны значений типов данных целых чисел
+
+	/*
+		int8	-128 до 127
+		uint8	0 до 255
+		int16	-32768 до 32767
+		uint16	0 до 65535
+		int32	-2147483648 до 2147483647
+		uint32	0 до 4294967295
+		int64	-9223372036854775808 до 9223372036854775807
+		uint64	0 до 18446744073709551615
+	*/
+
+	//	Константы
+
+	/*
+		const IMTPower = 2 - фикс значение к примеру для степени в формуле
+	*/
+
+	//	Ввод и вывод
+
+	/*
+		var userValue float64
+		fmt.Print("Введи своё значение: ")
+		fmt.Scan(&userValue)
+		fmt.Print(userValue)
+	*/
+
+	//	Форматирование строк
 }
-
-//Массивы и слайс
-//transactions := []int{1, 2, 3, 4} // Массив из чисел
-//transactions = append(transactions, 5)
-//newTrans := append(transactions, 15)
-//fmt.Println(transactions)
-//fmt.Println(newTrans)
-
-//transactionsPartial := transactions[1:5]
-//transactionsNewPartial := transactionsPartial[:1]
-//banks := [3]string{"Sber", "T-Bank", "VTB"} // Массив из строк
-
-//banks[0] = "Alpha" // Изменение значения части массива по индексу
-//fmt.Println(banks)
-//fmt.Println(transactions[1]) // Вывод ВТОРОГО! значения из массива
-
-//partial := transactions[1:4] // Slice от 1(2) значения по индексу до последнего 4(5)
-//fmt.Println(partial)
-
-//transactionsNewPartial[0] = 10
-
-//transactionsNewPartial = transactionsNewPartial[0:4]
-
-//fmt.Println(transactions)
-//fmt.Println(transactionsPartial)
-//fmt.Println(transactionsNewPartial)
-//fmt.Println(len(transactionsPartial), cap(transactionsPartial))
-//fmt.Println(len(transactionsNewPartial), cap(transactionsNewPartial))
-
-//tr1 := []int{1, 2, 3, 4}
-//tr2 := []int{5, 6, 7, 8, 9}
-//tr3 := append(tr1, tr2...)
-//for index, value := range tr3 {
-//	fmt.Println(index, value)
-//}
